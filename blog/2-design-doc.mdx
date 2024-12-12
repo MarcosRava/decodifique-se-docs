@@ -1,0 +1,157 @@
+---
+title: 'Construindo o Design Document do Decodifique-se'
+publishedAt: '2024-11-27'
+summary: 'Entenda como estruturamos o Design Document do projeto Decodifique-se.'
+---
+
+### Introdução
+
+Quando iniciamos o desenvolvimento do **Decodifique-se**, o objetivo era criar algo prático, funcional e eficiente, evitando armadilhas como excesso de complexidade ou decisões mal fundamentadas. Um passo importante foi estruturar as decisões técnicas e estratégicas, garantindo que cada etapa fosse clara e justificável.
+
+Dois conceitos ajudaram bastante no início do projeto: **Proof of Concept (POC)** e **Minimum Viable Product (MVP)**. Eles foram o ponto de partida antes de elaborar um **Design Document (DD)** completo.
+
+---
+
+### Proof of Concept (POC)
+
+Uma **Prova de Conceito (POC)** é usada para validar a viabilidade técnica de uma ideia ou tecnologia antes de um comprometimento maior. No caso do **Decodifique-se**, testamos ferramentas e abordagens para garantir que:
+
+- Conseguiríamos criar páginas estáticas e dinâmicas sem complicações.
+- As soluções eram acessíveis, modernas e alinhadas com nossas restrições (tempo, custo e aprendizado).
+
+**Exemplo no Decodifique-se**:
+
+- Testamos o **Next.js** como framework base, garantindo que ele atendia aos requisitos de suporte a **Markdown/MDX** e integração com templates.
+- Utilizamos o template [Portfolio Starter Kit](https://vercel.com/templates/next.js/portfolio-starter-kit) para verificar se poderíamos economizar tempo no design e nos elementos básicos de UI.
+
+---
+
+### Minimum Viable Product (MVP)
+
+Após validar as tecnologias na **POC**, definimos o **MVP (Produto Mínimo Viável)**. Ele é a versão inicial do produto que atende às necessidades principais, permitindo um lançamento rápido para coletar feedback ou prosseguir com o desenvolvimento.
+
+**MVP do Decodifique-se**:
+
+- Funcionalidades:
+  - Página inicial com informações sobre o projeto.
+  - Publicação de posts em **Markdown/MDX**.
+  - Design responsivo e suporte ao modo noturno.
+- Ferramentas:
+  - **GitHub Pages** para hospedagem gratuita.
+  - **GitHub Actions** para deploy automatizado.
+  - Template do **Portfolio Starter Kit** para minimizar esforço no design.
+
+---
+
+### Design Document (DD)
+
+Com o **POC** e o **MVP** validados, avançamos para o **Design Document**, detalhando as decisões técnicas e estratégias. Este documento serve como referência para o desenvolvimento e futuras expansões do projeto.
+
+<details>
+  <summary>📄 Exemplo de Design Document</summary>
+
+### **Design Document (DD)**: Decodifique-se
+
+#### **1. Contexto e Problema**
+
+O Decodifique-se precisa de uma plataforma para hospedar e publicar posts que:
+
+- Seja simples e rápida de implementar.
+- Não exija custos ou conhecimentos avançados de UI/UX e backend.
+- Atenda ao público interessado em conteúdos técnicos e educativos.
+
+#### **2. Objetivo Técnico**
+
+Criar uma plataforma minimalista que:
+
+- Permita a publicação de posts escritos em um formato amigável.
+- Ofereça layout pré-configurado para leitura confortável.
+- Suporte temas modernos como dark mode e SEO.
+- Seja hospedada com custo zero e processo de deploy automatizado.
+
+#### **3. Requisitos**
+
+**Funcionais:**
+
+- Renderizar posts estáticos escritos em Markdown/MDX.
+- Oferecer layout responsivo e otimizado para SEO.
+- Possuir modo claro e escuro.
+
+**Não Funcionais:**
+
+- Tempo de deploy deve ser inferior a 10 minutos.
+- Deve ser hospedado gratuitamente.
+- Simplicidade no fluxo de publicação (mínima curva de aprendizado).
+
+#### **4. Alternativas Consideradas e Rejeitadas**
+
+| Alternativa                   | Motivo da Rejeição                                                            |
+| ----------------------------- | ----------------------------------------------------------------------------- |
+| **WordPress**                 | Curva de aprendizado alta para personalização e custos.                       |
+| **Jekyll (com GitHub Pages)** | Boa alternativa, mas menos popular e com menos suporte para layouts modernos. |
+| **Medium**                    | Não permite controle total sobre layout ou branding.                          |
+| **Pelican (Python)**          | Requer instalação e curva de aprendizado de ferramentas adicionais.           |
+
+#### Escolha Final:
+
+Optamos pelo **Next.js com o template Portfolio Starter Kit** devido a:
+
+- Layout pronto e otimizado.
+- Suporte a MDX e Markdown.
+- Deploy simplificado com GitHub Actions e Vercel.
+- Integração fácil com tecnologias modernas e suporte a SEO.
+
+#### **5. Estratégia de Teste e Critérios de Aceitação**
+
+**Testes Planejados:**
+
+1. **Teste de Renderização**:
+   - Posts devem ser renderizados corretamente em todos os navegadores modernos.
+2. **Teste de Responsividade**:
+   - Layout deve se ajustar a diferentes dispositivos (desktop, tablet, mobile).
+3. **Teste de Deploy**:
+   - Após cada merge na branch `main`, o deploy deve ocorrer sem erros.
+4. **Teste de SEO**:
+   - Análise de SEO deve retornar pontuação acima de 90 no PageSpeed Insights.
+
+**Critérios de Aceitação:**
+
+- Posts estão sendo exibidos corretamente com todos os estilos.
+- Dark mode funcional e com alternância suave.
+- Processo de deploy ocorre automaticamente sem falhas.
+- Nenhum custo adicional foi incorrido durante o desenvolvimento.
+
+#### **6. Arquitetura Técnica**
+
+1. **Framework Frontend**: Next.js.
+2. **Layout e Estilização**: Tailwind CSS.
+3. **Hospedagem**: GitHub Pages.
+4. **Fluxo de Deploy**:
+   - Push na branch `main` dispara pipeline no GitHub Actions.
+   - Arquivos estáticos são gerados e publicados automaticamente.
+
+#### **7. Riscos e Mitigações**
+
+| Risco                                    | Mitigação                                      |
+| ---------------------------------------- | ---------------------------------------------- |
+| Limitações de personalização no template | Utilizar o Tailwind para ajustes simples.      |
+| Problemas com GitHub Actions             | Manter backups locais e criar logs detalhados. |
+| Falta de experiência com Next.js         | Consultar a documentação oficial e tutoriais.  |
+
+---
+
+</details>
+
+---
+
+### Conclusão
+
+O Design Document é uma ferramenta indispensável para documentar e justificar decisões técnicas. No **Decodifique-se**, ele foi precedido por uma **POC** e um **MVP** definido, garantindo que as escolhas fossem viáveis e alinhadas às necessidades do projeto.
+
+No próximo post, exploraremos o **Task Breakdown** e como ele complementa o backlog inicial ao dividir as funcionalidades em tarefas práticas e claras. Até lá! 🚀
+
+Links:
+
+- [Design Document Template](../templates/design-document.mdx)
+- [POC e MVP](https://www.venturus.org.br/insights/blog/entenda-o-que-e-mvp-e-veja-como-aplicar-esse-metodo)
+- [Design Document](https://medium.com/inside-picpay/uma-introdu%C3%A7%C3%A3o-aos-design-docs-8590f28f4cc1)
